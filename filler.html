@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="w-screen min-h-screen p-10 bg-gray-100 text-gray-800">
+
+    <div class="flex">
+        <!-- Filter Section Start -->
+        <div class="w-1/4 p-4 rounded mr-6">
+            <h2 class="text-lg font-semibold">Filters</h2>
+            <!-- Category Filter -->
+            <div class="mt-4">
+                <h3 class="font-medium">Categories</h3>
+                <div class="mt-2">
+                    <button id="category-1" class="category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300 mb-2">Body Combat</button>
+                    <button id="category-2" class="category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300 mb-2">Yoga Programs</button>
+                    <button id="category-3" class="category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300">Cycling Program</button>
+                    <button id="category-4" class="mt-2 category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300 mb-2">Boxing Fitness</button>
+                    <button id="category-5" class="category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300 mb-2">Swimming Program</button>
+                    <button id="category-6" class="category-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300 mb-2">Massage</button>
+                </div>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="mt-4">
+                <h3 class="font-medium">Price Range</h3>
+                <div class="flex space-x-2 mt-2">
+                    <button id="low-price" class="price-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300">Low</button>
+                    <button id="medium-price" class="price-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300">Medium</button>
+                    <button id="high-price" class="price-filter w-full py-2 bg-indigo-200 text-indigo-600 text-sm rounded hover:bg-indigo-300">High</button>
+                </div>
+            </div>
+        </div>
+        <!-- Filter Section End -->
+
+        <!-- Product Section Start -->
+        <div class="flex-1 p-4">
+            <h1 class="text-3xl">Product Category Page Title</h1>
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-6">
+                <span class="text-sm font-semibold">1-16 of 148 Products</span>
+            </div>
+            <div id="product-list" class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6">
+                <!-- Product Tile Start -->
+                <div class="product" data-category="1" data-price="low">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Body Combat</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">YOUSSEF ABDELHAMID</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+
+                <!-- Product Tile Start -->
+                <div class="product" data-category="2" data-price="medium">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Yoga Programs</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">OMAR ATTIYAH</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+
+                <!-- Product Tile Start -->
+                <div class="product" data-category="3" data-price="high">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Cycling Program</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">DANIEL STEIN</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+
+                <!-- Product Tile Start -->
+                <div class="product" data-category="4" data-price="low">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Boxing Fitness</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">HAYTHAM FAHMY</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+
+                <!-- Product Tile Start -->
+                <div class="product" data-category="5" data-price="medium">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Swimming Program</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">MAHMOUD ESMAT ALI</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+
+                <!-- Product Tile Start -->
+                <div class="product" data-category="6" data-price="heigh">
+                    <a href="#" class="block h-64 rounded-lg shadow-lg bg-white"></a>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <a href="#" class="font-medium">Massage</a>
+                            <a class="flex items-center" href="#">
+                                <span class="text-xs font-medium text-gray-600">by</span>
+                                <span class="text-xs font-medium ml-1 text-indigo-500">KIRILL SIMEONOV</span>
+                            </a>
+                        </div>
+                        <span class="flex items-center h-8 bg-indigo-200 text-indigo-600 text-sm px-2 rounded">Enlist</span>
+                    </div>
+                </div>
+                <!-- Product Tile End -->
+            </div>
+        </div>
+        <!-- Product Section End -->
+    </div>
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .group:focus .group-focus\:flex {
+            display: flex;
+        }
+        .w-full {
+            width: 100%;
+        }
+        .mr-6 {
+            margin-right: 1.5rem;
+        }
+        .price-filter.active, .category-filter.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+
+    <script>
+        // Get all price filter buttons, category filter buttons, and products
+        const priceFilters = document.querySelectorAll('.price-filter');
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const products = document.querySelectorAll('.product');
+
+        // Function to filter products based on selected price range and categories
+        function filterProducts() {
+            const selectedPriceRange = [];
+            const selectedCategories = [];
+
+            // Get selected price range
+            priceFilters.forEach((filter) => {
+                if (filter.classList.contains('active')) {
+                    selectedPriceRange.push(filter.textContent.toLowerCase());
+                }
+            });
+
+            // Get selected categories
+            categoryFilters.forEach((filter) => {
+                if (filter.classList.contains('active')) {
+                    selectedCategories.push(filter.textContent.split(' ')[1]); // Category 1 -> 1
+                }
+            });
+
+            // Show or hide products based on the selected filters
+            products.forEach((product) => {
+                const productCategory = product.getAttribute('data-category');
+                const productPrice = product.getAttribute('data-price');
+
+                // Check if the product matches the selected filters
+                const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(productCategory);
+                const matchesPrice = selectedPriceRange.length === 0 || selectedPriceRange.includes(productPrice);
+
+                // Toggle visibility of product based on filter
+                if (matchesCategory && matchesPrice) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Add event listeners to price filter buttons
+        priceFilters.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Toggle active state of price buttons
+                button.classList.toggle('active');
+                filterProducts();
+            });
+        });
+
+        // Add event listeners to category filter buttons
+        categoryFilters.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Toggle active state of category buttons
+                button.classList.toggle('active');
+                filterProducts();
+            });
+        });
+
+        // Initial filter run
+        filterProducts();
+    </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+</html>

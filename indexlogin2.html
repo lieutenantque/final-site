@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Creation and Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('https://images.unsplash.com/photo-1560710990-9f5d4197b5a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vdW50YWluJTIwc25vd3xlbnwwfHwwfHx8MA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      text-align: center;
+      color: red;
+      margin-bottom: 15px;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Account System</h2>
+    <div id="message" class="message"></div>
+
+    <div id="form-create-account">
+      <h3>Create Account</h3>
+      <label for="create-username">Username:</label>
+      <input type="text" id="create-username" placeholder="Enter your username">
+      <label for="create-password">Password:</label>
+      <input type="password" id="create-password" placeholder="Enter your password">
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" placeholder="Confirm your password">
+      <button onclick="createAccount()">Create Account</button>
+    </div>
+
+    <div id="form-login" style="display: none;">
+      <h3>Login</h3>
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" placeholder="Enter your username">
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" placeholder="Enter your password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <p style="text-align: center;">
+      <a href="#" onclick="toggleForms()">Switch to Login/Create Account</a>
+    </p>
+  </div>
+
+  <script>
+    // Function to toggle between login and account creation forms
+    function toggleForms() {
+      const createForm = document.getElementById('form-create-account');
+      const loginForm = document.getElementById('form-login');
+
+      if (createForm.style.display === 'none') {
+        createForm.style.display = 'block';
+        loginForm.style.display = 'none';
+      } else {
+        createForm.style.display = 'none';
+        loginForm.style.display = 'block';
+      }
+
+      document.getElementById('message').textContent = ''; // Clear messages
+    }
+
+    // Function to create an account
+    function createAccount() {
+      const username = document.getElementById('create-username').value.trim();
+      const password = document.getElementById('create-password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+      const message = document.getElementById('message');
+
+      if (!username || !password || !confirmPassword) {
+        message.textContent = 'Error: All fields are required!';
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        message.textContent = 'Error: Passwords do not match!';
+        return;
+      }
+
+      // Check if the username already exists
+      if (localStorage.getItem(username)) {
+        message.textContent = 'Error: Username already exists!';
+        return;
+      }
+
+      // Store the username and hashed password in localStorage
+      localStorage.setItem(username, btoa(password)); // Base64 encoding as a simple hash
+      message.textContent = 'Account successfully created!';
+      message.style.color = 'green';
+
+      // Clear input fields
+      document.getElementById('create-username').value = '';
+      document.getElementById('create-password').value = '';
+      document.getElementById('confirm-password').value = '';
+    }
+
+    // Function to log in
+    function login() {
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const message = document.getElementById('message');
+
+      if (!username || !password) {
+        message.textContent = 'Error: All fields are required!';
+        return;
+      }
+
+      // Retrieve the stored password for the username
+      const storedPassword = localStorage.getItem(username);
+
+      if (!storedPassword) {
+        message.textContent = 'Error: Username not found!';
+        return;
+      }
+
+      if (storedPassword === btoa(password)) { // Compare with Base64 encoded password
+        message.textContent = 'Login successful!';
+        message.style.color = 'green';
+      } else {
+        message.textContent = 'Error: Incorrect password!';
+      }
+    }
+  </script>
+</body>
+</html>

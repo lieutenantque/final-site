@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<style>
+  *,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.c-preload {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+.c-preload__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.c-preload__logo-wrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.c-preload__logo-image {
+  display: block;
+  height: 100px;
+  width: auto;
+}
+
+.c-preload__vertical-lines {
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
+  height: 100%;
+}
+
+.c-preload__vertical-line {
+  position: absolute;
+  background-color: #222;
+  height: 100%;
+}
+
+.c-preload__vertical-line:nth-child(1) {
+  left: calc(0 * (100% / 4));
+  width: calc(100% / 4);
+}
+
+.c-preload__vertical-line:nth-child(2) {
+  left: calc(1 * (100% / 4));
+  width: calc(100% / 4);
+}
+
+.c-preload__vertical-line:nth-child(3) {
+  left: calc(2 * (100% / 4));
+  width: calc(100% / 4);
+}
+
+.c-preload__vertical-line:nth-child(4) {
+  left: calc(3 * (100% / 4));
+  width: calc(100% / 4);
+}
+
+.c-preload__vertical-line:nth-child(odd) {
+  top: 0;
+}
+
+.c-preload__vertical-line:nth-child(even) {
+  bottom: 0;
+}
+
+.p-home {
+  height: 100vh;
+  padding: 80px 20px;
+}
+
+.p-home__content {
+  max-width: 1024px;
+  margin: 0 auto;
+  line-height: 32px;
+}
+
+.p-home__content h1 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+</style>
+
+<div class="c-preload">
+  <div class="c-preload__inner">
+    <div class="c-preload__logo-wrapper">
+      <img class="c-preload__logo-image" src="https://www.ats.hugo-salazar.com/wp-content/themes/amonthesign-2023/assets/img/logos/amon-the-sign-logo.png" alt="">
+    </div>
+
+    <div class="c-preload__vertical-lines">
+      <div class="c-preload__vertical-line"></div>
+      <div class="c-preload__vertical-line"></div>
+      <div class="c-preload__vertical-line"></div>
+      <div class="c-preload__vertical-line"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  function preload() {
+  const TIMELINE_PRELOAD = gsap.timeline();
+  
+  TIMELINE_PRELOAD
+  .fromTo(".c-preload__logo-image", {
+    opacity: 0,
+    y: '10%'
+  }, {
+    opacity: 1,
+    y: '0',
+    duration: 1.5,
+    ease: 'power2.out'
+  })
+  .to(".c-preload__logo-image", {
+    opacity: 0,
+    delay: 0.2,
+    ease: 'power2.out'
+  })
+  .to(".c-preload__vertical-line", {
+    height: "0",
+    duration: 1,
+    ease: 'power2.out'
+  });
+}
+
+window.addEventListener('load', preload);
+
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+</body>
+</html>
